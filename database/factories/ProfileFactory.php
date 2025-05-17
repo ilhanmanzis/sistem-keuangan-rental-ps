@@ -20,7 +20,7 @@ class ProfileFactory extends Factory
             'profile_id' => 1,
             'name' => 'BOOMING GAME',
             'logo' => 'profile.png',
-            'alamat' => 'Jl. Veteran, Warungboto, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55161',
+            'alamat' => 'Jl. Veteran, Warungboto, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta',
             'no_telpon' => '08867567567'
         ];
     }
