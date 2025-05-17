@@ -337,6 +337,17 @@ class Transaksi extends Controller
         } else {
             $totalDevice = 0;
         }
+
+        if ($request->input('kode_member') === null && $dataTransaksi['kode_member'] !== null) {
+            $totalTransaksi = Transaksis::where('kode_member', $dataTransaksi['kode_member'])->whereNotNull('id_device')->count();
+
+            // Jika transaksi ini adalah transaksi ke-5, ke-10, dst.
+            if ($totalTransaksi > 0 && ($totalTransaksi + 1)  % 5 == 0) {
+                MemberRewards::where('kode_member', $dataTransaksi['kode_member'])
+                    ->latest() // Order by created_at descending
+                    ->first()?->delete();
+            }
+        }
         //simpan transaksi 
         $transaksi = [
             'kode_member' => $request->input('kode_member'),
@@ -414,16 +425,7 @@ class Transaksi extends Controller
             }
         }
 
-        if ($request->input('kode_member') === null && $dataTransaksi['kode_member'] !== null) {
-            $totalTransaksi = Transaksis::where('kode_member', $member['kode_member'])->whereNotNull('id_device')->count();
 
-            // Jika transaksi ini adalah transaksi ke-5, ke-10, dst.
-            if ($totalTransaksi > 0 && $totalTransaksi  % 5 == 0) {
-                MemberRewards::where('kode_member', $member['kode_member'])
-                    ->latest() // Order by created_at descending
-                    ->first()?->delete();
-            }
-        }
         return redirect(route('pemasukan.index'))->with('success', 'Data berhasil diperbarui');
     }
 
