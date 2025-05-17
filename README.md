@@ -62,3 +62,9 @@ php artisan migrate --seed
 ```
 php artisan serve
 ```
+
+## 📸 Screenshot
+
+![Dashboard](screenshots/dashboard.png)
+![Pemasukan](screenshots/pemasukan.png)
+![Pengeluaran](screenshots/pengeluaran.png)
