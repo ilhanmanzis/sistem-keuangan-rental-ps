@@ -66,9 +66,13 @@ class Profile extends Controller
             'name' => 'required|string|max:255',
             'no_telpon' => 'required|string|max:255',
             'alamat' => 'required|string',
+            'minimal' => 'required|integer',
+            'bonus' => 'required|integer',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg,webp|max:2048', // Maksimal 2MB
         ], [
             'name.required' => 'Nama tidak boleh kosong',
+            'minimal.required' => 'Minimal tidak boleh kosong',
+            'bonus.required' => 'Bonus tidak boleh kosong',
             'logo.image' => 'logo harus berupa gambar',
             'logo.mimes' => 'logo harus berformat png, jpg, jpeg, atau webp',
             'logo.max' => 'logo harus berukuran max 2MB',
@@ -81,6 +85,8 @@ class Profile extends Controller
         $profile->name = $validated['name'];
         $profile->alamat = $validated['alamat'];
         $profile->no_telpon = $validated['no_telpon'];
+        $profile->minimal = $validated['minimal'];
+        $profile->bonus = $validated['bonus'];
 
         // Proses logo jika ada
         if ($request->hasFile('logo')) {
