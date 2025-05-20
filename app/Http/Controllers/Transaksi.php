@@ -406,6 +406,12 @@ class Transaksi extends Controller
                 ];
                 $dataBonus = MemberRewards::where('id_member_reward', $idReward[$index])->update($data);
             }
+        } else {
+            $data = [
+                'tanggal_klaim' => null,
+                'id_transaksi' => null
+            ];
+            MemberRewards::where('id_transaksi', $dataTransaksi['id_transaksi'])->update($data);
         }
 
         if ($request->input('kode_member') !== null && $dataTransaksi['kode_member'] === null) {

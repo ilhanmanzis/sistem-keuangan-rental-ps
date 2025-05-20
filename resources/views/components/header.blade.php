@@ -1,6 +1,6 @@
 <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
     class="flex items-center gap-2 pt-8 sidebar-header pb-7">
-    <a href="index.html" class="">
+    <a href="{{ route('dashboard') }}" class="">
         <span class="logo " :class="sidebarToggle ? 'hidden' : ''">
             <div class="flex justify-start">
 
