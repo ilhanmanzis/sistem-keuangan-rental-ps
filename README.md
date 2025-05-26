@@ -63,13 +63,6 @@ php artisan migrate --seed
 php artisan serve
 ```
 
-## ⚠️ Catatan Penting
-
-Jika Anda mengalami kendala atau error saat menjalankan aplikasi ini, silakan hubungi saya melalui:
-
--   📧 Email: [janggarfals1207@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&to=janggarfals1207@gmail.com)
--   📱 WhatsApp: [+6281282544112](https://wa.me/6281282544112)
-
 ## 📸 Screenshot
 
 ![Dashboard](screenshots/dashboard.png)
@@ -78,3 +71,10 @@ Jika Anda mengalami kendala atau error saat menjalankan aplikasi ini, silakan hu
 ![struk](screenshots/struk.png)
 ![Pengeluaran](screenshots/pengeluaran.png)
 ![member](screenshots/member.png)
+
+## ⚠️ Catatan Penting
+
+Jika Anda mengalami kendala atau error saat menjalankan aplikasi ini, silakan hubungi saya melalui:
+
+-   📧 Email: [janggarfals1207@gmail.com](https://mail.google.com/mail/?view=cm&fs=1&to=janggarfals1207@gmail.com)
+-   📱 WhatsApp: [+6281282544112](https://wa.me/6281282544112)
