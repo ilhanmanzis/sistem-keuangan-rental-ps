@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 12px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .table th,
+        .table td {
+            border: 1px solid #000;
+            padding: 5px;
+            text-align: center;
+            /* Ini membuat tulisan di tengah */
+            vertical-align: middle;
+        }
+
+        .table th {
+            background-color: #f0f0f0;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+
+        .text-center {
+            text-align: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="{{ $logo }}" class="logo" alt="Logo">
+        <h2>{{ $profile['name'] }}</h2>
+        <h4>Laporan Pengeluaran</h4>
+        <h4>{{ $mulai }} sampai {{ $selesai }}</h4>
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Tanggal</th>
+                <th>Keterangan</th>
+                <th>Harga</th>
+                <th>Karyawan</th>
+                <th>Shift</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $totalPengeluaran = 0;
+                $no = 1;
+            @endphp
+            @foreach ($pengeluarans as $item)
+                @php $totalPengeluaran += $item->harga; @endphp
+                <tr>
+                    <td>{{ $no++ }}</td>
+                    <td>{{ $item->tanggal }}</td>
+                    <td>{{ $item->keterangan }}</td>
+                    <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                    <td>{{ $item->user->name }}</td>
+                    <td>{{ $item->shift->name }}</td>
+                </tr>
+            @endforeach
+            <tr class="total-row">
+                <td colspan="3" style="text-align:right">Total Pengeluaran:</td>
+                <td colspan="1">Rp {{ number_format($totalPengeluaran, 0, ',', '.') }}</td>
+                <td colspan="2"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
